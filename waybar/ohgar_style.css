@@ -80,14 +80,16 @@ button {
 #clock,
 #battery,
 #tray,
-/*#cpu,
+#pulseaudio,
+#wireplumber,
+
+/*
+#cpu,
 #memory,
 #disk,
 #temperature,
 #backlight,
 #network,
-#pulseaudio,
-#wireplumber,
 #custom-media,
 #mode,
 #idle_inhibitor,
@@ -98,7 +100,8 @@ button {
     color: #ffffff;
 }
 
-#window,*/
+#window,
+*/
 #workspaces {
     margin: 0 4px;
 }
@@ -192,28 +195,28 @@ label:focus {
 
 #network.disconnected {
     background-color: #f53c3c;
-}
+}*/
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    /*background-color: #f1c40f;*/
+    color: #aaf0ff;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+    /*background-color: #90b1b1;*/
+    color: #2c4d56;
 }
 
-#wireplumber {
+/*#wireplumber {
     background-color: #fff0f5;
     color: #000000;
-}
+}*/
 
-#wireplumber.muted {
+/*#wireplumber.muted {
     background-color: #f53c3c;
-}
+}*/
 
-#custom-media {
+/*#custom-media {
     background-color: #66cc99;
     color: #2a5c45;
     min-width: 100px;
@@ -317,12 +320,13 @@ label:focus {
 
 #privacy-item.screenshare {
     background-color: #cf5700;
-}
+}*/
 
-#privacy-item.audio-in {
+/*#privacy-item.audio-in {
     background-color: #1ca000;
-}
+}*/
 
-#privacy-item.audio-out {
+/*#privacy-item.audio-out {
     background-color: #0069d4;
 }*/
+
