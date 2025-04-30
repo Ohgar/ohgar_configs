@@ -18,6 +18,7 @@
     "modules-right": [
         //"mpd",
         //"idle_inhibitor",
+	"group/update",
         "pulseaudio",
         //"network",
         //"power-profiles-daemon",
@@ -33,6 +34,13 @@
         "tray"
         //"custom/power"
     ],
+    "group/update": {
+      "orientation": "horizontal",
+      "modules": [
+	"custom/yay",
+	"custom/pacman"	
+      ]
+    },
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -49,6 +57,73 @@
             "active": "",
             "default": ""
         }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+         //"icons": {
+           //"blueman": "bluetooth",
+           //"TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+         //}
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+	"format": "   {:%I:%M %p}"
+        //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        //"format-alt": "{:%Y-%m-%d}"
+	//"format-alt": "{:%m-%d-%Y}"
+    },
+    "clock#date": {
+	"format": "{:%m-%d-%Y}" 
+    },
+    "battery": {
+	"interval": 1,
+        //"states": {
+            // "good": 95,
+            //"warning": 30,
+            //"critical": 15
+        //},
+        //"format": "{capacity}% {icon}",
+	"format": "{icon}",
+        //"format-full": "{capacity}% {icon}",
+        //"format-plugged": "{capacity}% ",
+        "format-plugged": "{icon} ",
+	//
+        //"format-charging": "{capacity}% ",
+	"format-charging": "{icon} ",
+        //"format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "pulseaudio": {
+        "scroll-step": 1, // %, can be a float
+        "format": "{volume} {icon} {format_source}",
+        "format-bluetooth": "{volume} {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume} ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        //"on-click": "pavucontrol"
+    },
+    "custom/pacman": {
+        "format": "{}",
+        "exec": "bash -c 'updates=$(pacman -Qu | wc -l); if [ \"$updates\" -eq 0 ]; then echo -e \"\\uF00C\"; else echo -e \"\\A; $updates\"; fi'",
+        "interval": 600
+    },
+    "custom/yay": {
+	"format": "{}",
+	"exec": "bash -c 'updates=$(yay -Qu | wc -l); if [ \"$updates\" -eq 0 ]; then echo -e \"\\uF00C\"; else echo -e \"\\Y; $updates\"; fi'",
+	"interval": 600
     },
     //"keyboard-state": {
         //"numlock": true,
@@ -102,24 +177,7 @@
             //"deactivated": ""
         //}
     //},
-    "tray": {
-         "icon-size": 21,
-        "spacing": 10
-         //"icons": {
-           //"blueman": "bluetooth",
-           //"TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-         //}
-    },
-    "clock": {
-        // "timezone": "America/New_York",
-	"format": "   {:%I:%M %p}"
-        //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        //"format-alt": "{:%Y-%m-%d}"
-	//"format-alt": "{:%m-%d-%Y}"
-    },
-    "clock#date": {
-	"format": "{:%m-%d-%Y}" 
-    },
+
     //"cpu": {
         //"format": "{usage}% ",
         //"tooltip": false
@@ -140,26 +198,7 @@
         //"format": "{percent}% {icon}",
         //"format-icons": ["", "", "", "", "", "", "", "", ""]
     //},
-    "battery": {
-	"interval": 1,
-        //"states": {
-            // "good": 95,
-            //"warning": 30,
-            //"critical": 15
-        //},
-        //"format": "{capacity}% {icon}",
-	"format": "{icon}",
-        //"format-full": "{capacity}% {icon}",
-        //"format-plugged": "{capacity}% ",
-        "format-plugged": "{icon} ",
-	//
-        //"format-charging": "{capacity}% ",
-	"format-charging": "{icon} ",
-        //"format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
+
     //"battery#bat2": {
         //"bat": "BAT2"
     //},
@@ -183,25 +222,7 @@
         //"format-disconnected": "Disconnected ⚠",
         //"format-alt": "{ifname}: {ipaddr}/{cidr}"
     //},
-    "pulseaudio": {
-         "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        //"on-click": "pavucontrol"
-    },
+
     //"custom/media": {
         //"format": "{icon} {text}",
         //"return-type": "json",
@@ -225,5 +246,6 @@
 			//"suspend": "systemctl suspend",
 			//"hibernate": "systemctl hibernate"
 		//}
-    //}
+    //},
+   
 }

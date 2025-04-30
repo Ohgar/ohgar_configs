@@ -82,6 +82,8 @@ button {
 #tray,
 #pulseaudio,
 #wireplumber,
+#custom-pacman,
+#custom-yay,
 
 /*
 #cpu,
@@ -149,6 +151,15 @@ button {
     animation-direction: alternate;
 }
 
+#custom-pacman {
+  color: #aaf0ff;
+  padding-right: 228px;
+}
+
+#custom-yay {
+  color: #aaf0ff;
+  padding-right: 4px;
+}
 /*#power-profiles-daemon {
     padding-right: 15px;
 }
