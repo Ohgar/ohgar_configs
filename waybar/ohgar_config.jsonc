@@ -116,14 +116,10 @@
         //"on-click": "pavucontrol"
     },
     "custom/pacman": {
+	"restart-interval": 600,
         "format": "{}",
-        "exec": "bash -c 'updates=$(pacman -Qu | wc -l); if [ \"$updates\" -eq 0 ]; then echo -e \"\\uF00C\"; else echo -e \"\\A; $updates\"; fi'",
-        "interval": 600
-    },
-    "custom/yay": {
-	"format": "{}",
-	"exec": "bash -c 'updates=$(yay -Qu | wc -l); if [ \"$updates\" -eq 0 ]; then echo -e \"\\uF00C\"; else echo -e \"\\Y; $updates\"; fi'",
-	"interval": 600
+        "exec": "bash -c 'updates=$(pacman -Qu | wc -l); if [ \"$updates\" -eq 0 ]; then echo -e \"\\U00A0 &#xf209;\"; else echo -e \"U00A0 Updates Available\"; fi'",
+	"signal": 8
     },
     //"keyboard-state": {
         //"numlock": true,
